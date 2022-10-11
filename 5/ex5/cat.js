@@ -1,5 +1,5 @@
 import fs from "fs"
-// import path from "path"
+import path from "path"
 
 // Put solution here
 
@@ -9,8 +9,9 @@ console.log(text)
 
 // 2. cp
 const data = ""
+const file2 = "./testDir/TestFile2.txt"
 
-fs.writeFileSync("./testDir/TestFile2.txt", data, function (err) {
+fs.writeFileSync(`${path.basename(file2)}`, data, function (err) {
   if (err) {
     return console.log(err)
   }
