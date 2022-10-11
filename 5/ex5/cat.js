@@ -5,7 +5,8 @@ import path from "path"
 
 // 1. cat
 const text = fs.readFileSync("./testDir/TestFile.txt", "UTF-8")
-console.log(text)
+//console.log(text)
 
 // 2. cp
-fs.copyFileSync("./testDir/TestFile.txt", "./testDir/TestFile2.txt")
+const copy = fs.copyFileSync("./testDir/TestFile.txt", "./testDir/TestFile2.txt")
+console.log(copy)
