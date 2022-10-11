@@ -1,8 +1,8 @@
 import fs from "fs"
 import path from "path"
-
+import { dirname } from "path"
 // Put solution here
-console.log(path.__dirname)
+console.log(dirname)
 // 1. cat
 const text = fs.readFileSync("./testDir/TestFile.txt", "UTF-8")
 console.log(text)
