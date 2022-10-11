@@ -6,55 +6,52 @@ import path, { dirname, sep } from "path"
 import { createTimeout, createInterval } from "./ex5"
 import { jest } from "@jest/globals"
 import { randomInt } from "crypto"
-import { fileURLToPath } from 'url'
-import {spawn, spawnSync} from 'child_process'
+import { fileURLToPath } from "url"
+import { spawn, spawnSync } from "child_process"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-
-function cleanTestDir() {
-  let files = fs.readdirSync(path.resolve("testDir"))
-  for(let file of files) {
+function cleanTestDir () {
+  const files = fs.readdirSync(path.resolve("testDir"))
+  for (const file of files) {
     fs.unlinkSync(path.resolve(`testDir/${file}`))
   }
 }
 
-function execNodeProgram(prog, args, onStdOut, done) {
-    const testAppFilePath = path.join(
-      __dirname,
-      `./ex5/${prog}`,
-    )
-    try {
-      fs.accessSync(testAppFilePath)
-    } catch (error) {
-      throw new Error("No program file found " + testAppFilePath)
+function execNodeProgram (prog, args, onStdOut, done) {
+  const testAppFilePath = path.join(
+    __dirname,
+      `./ex5/${prog}`
+  )
+  try {
+    fs.accessSync(testAppFilePath)
+  } catch (error) {
+    throw new Error("No program file found " + testAppFilePath)
+  }
+  if (done) {
+    let finished = false
+    const testApp = spawn("node", [testAppFilePath, ...args])
+    testApp.stdout.on("data", data => {
+      finished = true
+      onStdOut(data.toString())
+      testApp.kill("SIGINT")
+      done()
+    })
+    if (testApp.finished) {
+      onStdOut("")
+      done()
     }
-    if(done) {
-      let finished = false
-      const testApp = spawn('node', [testAppFilePath, ...args], )
-        testApp.stdout.on('data',data => {
-          finished=true
-          onStdOut(data.toString())
-          testApp.kill('SIGINT')
-          done()
-        })
-      if(testApp.finished) {
-          onStdOut("")
-          done()
-      }
+  } else {
+    const output = spawnSync("node", [testAppFilePath, ...args])
+    if (onStdOut) { onStdOut(output.stdout.toString()) }
+  }
+}
 
-    } else {
-      let output = spawnSync('node', [testAppFilePath, ...args]) 
-      if(onStdOut)
-        onStdOut(output.stdout.toString())
-      }
-    }
-  
 beforeAll(() => {
   try {
-  fs.accessSync(path.resolve('testDir'))
+    fs.accessSync(path.resolve("testDir"))
   } catch (err) {
-  fs.mkdirSync(path.resolve("testDir"))
+    fs.mkdirSync(path.resolve("testDir"))
   }
 })
 describe("5-1", () => {
@@ -87,30 +84,30 @@ describe("5-2", () => {
   beforeEach(() => {
     cleanTestDir()
   })
-  // Call ex5/cat.js with a file argument. 
+  // Call ex5/cat.js with a file argument.
   test("1. cat", done => {
-    let fileName = "testDir/TestFile.txt"
-    let file = path.resolve(fileName)
+    const fileName = "testDir/TestFile.txt"
+    const file = path.resolve(fileName)
     fs.writeFileSync(file, "Testing 1 2 3")
     execNodeProgram("cat.js", [fileName], data => {
-      expect(data).toMatch('Testing 1 2 3')
+      expect(data).toMatch("Testing 1 2 3")
     }, done)
   })
-  // Call ex5/cp.js with a file argument and test if file copied. 
+  // Call ex5/cp.js with a file argument and test if file copied.
   test("2. cp", async () => {
     const randomText = "Testing 1 2 3" + Math.random()
-    let file1 = "testDir/TestFile.txt"
-    let file2 = "testDir/TestFile2.txt"
+    const file1 = "testDir/TestFile.txt"
+    const file2 = "testDir/TestFile2.txt"
     fs.writeFileSync(path.resolve(file1), randomText)
     execNodeProgram("cp.js", [file1, file2])
     const out = fs.readFileSync(path.resolve(file2)).toString()
     expect(out).toMatch(randomText)
   })
-  // Call ex5/echo.js with a string argument and test if as expected. 
+  // Call ex5/echo.js with a string argument and test if as expected.
   test("3. echo", async () => {
-  let testString = "Test string " + randomInt(1000)
-    execNodeProgram("echo.js", [testString], out=> {
-    expect(out).toMatch(`${testString}`)
+    const testString = "Test string " + randomInt(1000)
+    execNodeProgram("echo.js", [testString], out => {
+      expect(out).toMatch(`${testString}`)
     })
   })
   test("4. ls", async () => {
@@ -122,8 +119,8 @@ describe("5-2", () => {
     fs.writeFileSync(path.resolve(`testDir/${file2}`), "")
     fs.writeFileSync(path.resolve(`testDir/${file3}`), "")
     // ls(["", "", "testDir"])
-    let files = [file1,file2,file3]
-    files = files.sort((a,b)=>a.toString().localeCompare(b))
+    let files = [file1, file2, file3]
+    files = files.sort((a, b) => a.toString().localeCompare(b))
     execNodeProgram("ls.js", ["testDir"], out => {
       expect(out).toMatch(`${files.join(" ")}`)
     })
@@ -132,16 +129,16 @@ describe("5-2", () => {
     const file1 = path.resolve(`testDir/${randomInt(100)}`)
     fs.writeFileSync(file1, "")
     const file2 = path.resolve(`testDir/${randomInt(100)}`)
-    execNodeProgram("mv.js", [file1,file2])
+    execNodeProgram("mv.js", [file1, file2])
     expect(() => {
       accessSync(file2)
-      }).not.toThrowError()
+    }).not.toThrowError()
   })
   test("6. touch", async () => {
     const file1 = path.resolve(`testDir/${randomInt(100)}`)
     execNodeProgram("touch.js", [file1])
     expect(() => {
       accessSync(file1)
-      }).not.toThrowError()
+    }).not.toThrowError()
   })
 })

@@ -7,9 +7,12 @@
 export function createTimeout (time, string) {
 // Ex 5-1.1. IMPLEMENT HERE. Add parameters as necessary
   time = time * 1000
-
-  return setTimeout(string, time)
+  const timerDone = () => { console.log(`${string}`) }
+  return setTimeout(timerDone, time)
 }
-export function createInterval () {
+export function createInterval (time, func) {
 // Ex 5-1.2. IMPLEMENT HERE. Add parameters as necessary
+  time = time * 1000
+  func = () => console.log("Hello")
+  return setInterval(func, time)
 }
