@@ -13,6 +13,5 @@ export function createTimeout (time, string) {
 export function createInterval (time, func) {
 // Ex 5-1.2. IMPLEMENT HERE. Add parameters as necessary
   time = time * 1000
-  func = () => console.log("Hello")
   return setInterval(func, time)
 }
