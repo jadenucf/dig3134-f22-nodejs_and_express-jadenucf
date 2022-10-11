@@ -11,7 +11,7 @@ console.log(text)
 const data = ""
 const file2 = "./testDir/TestFile2.txt"
 
-fs.writeFileSync(`${path.basename(file2)}`, data, function (err) {
+fs.writeFileSync(file, data, function (err) {
   if (err) {
     return console.log(err)
   }
