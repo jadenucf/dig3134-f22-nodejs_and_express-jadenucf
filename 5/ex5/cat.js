@@ -4,7 +4,8 @@ import path from "path"
 // Put solution here
 
 // 1. cat
-const text = fs.readFileSync("./testDir/TestFile.txt", "UTF-8")
+const file1 =  "./testDir/TestFile.txt"
+const text = fs.readFileSync(file1, "UTF-8")
 console.log(text)
 
 // 2. cp
