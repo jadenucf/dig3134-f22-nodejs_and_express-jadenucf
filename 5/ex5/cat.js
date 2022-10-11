@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 
 // Put solution here
-console.log(__dirname)
+console.log(path.__dirname)
 // 1. cat
 const text = fs.readFileSync("./testDir/TestFile.txt", "UTF-8")
 console.log(text)
@@ -11,7 +11,7 @@ console.log(text)
 const data = ""
 const file2 = "./testDir/TestFile2.txt"
 
-fs.writeFileSync(`${path.basename(file2)}`, data, function (err) {
+fs.writeFileSync(`./testDir/TestFile2.txt`, data, function (err) {
   if (err) {
     return console.log(err)
   }
