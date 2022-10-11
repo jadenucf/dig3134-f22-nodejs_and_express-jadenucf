@@ -8,4 +8,12 @@ const text = fs.readFileSync("./testDir/TestFile.txt", "UTF-8")
 console.log(text)
 
 // 2. cp
-fs.copyFileSync(text, "./testDir/TestFile2.txt")
+const data = ""
+fs.writeFileSync("./testDir/TestFile2.txt", data, function (err) {
+  if (err) {
+    return console.log(err)
+  }
+  console.log("goodnight, punpun!")
+})
+
+fs.copyFileSync("./testDir/TestFile.txt", "./testDir/TestFile2.txt")
