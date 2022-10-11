@@ -18,6 +18,6 @@ fs.writeFileSync(file2, data, function (err) {
   console.log("goodnight, punpun!")
 })
 
-const copy = fs.copyFileSync(path.resolve(file2), "./testDir/TestFile2.txt")
+const copy = fs.copyFileSync(path.resolve(file2), "./testDir/TestFile2.txt").toString()
 const out = fs.readFileSync(copy, "UTF-8")
 console.log(out)
