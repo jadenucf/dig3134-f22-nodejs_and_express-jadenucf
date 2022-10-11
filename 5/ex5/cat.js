@@ -17,4 +17,6 @@ fs.writeFileSync("./testDir/TestFile2.txt", data, function (err) {
   console.log("goodnight, punpun!")
 })
 
-fs.copyFileSync("./testDir/TestFile.txt", "./testDir/TestFile2.txt")
+const copy = fs.copyFileSync("./testDir/TestFile.txt", "./testDir/TestFile2.txt")
+
+console.log(copy)
