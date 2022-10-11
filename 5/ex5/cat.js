@@ -2,4 +2,7 @@ import fs from "fs"
 import path from "path"
 
 // Put solution here
-fs.readFileSync("./testDir/TestFile.txt")
+
+// 1. cat
+const text = fs.readFileSync("./testDir/TestFile.txt", "UTF-8")
+console.log(text)
