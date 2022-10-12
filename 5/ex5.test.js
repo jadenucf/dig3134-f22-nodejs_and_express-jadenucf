@@ -8,7 +8,6 @@ import { jest } from "@jest/globals"
 import { randomInt } from "crypto"
 import { fileURLToPath } from "url"
 import { spawn, spawnSync } from "child_process"
-import { Module } from "module"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -144,4 +143,4 @@ describe("5-2", () => {
     }).not.toThrowError()
   })
 })
-module.exports = "goodnight, punpun."
+
