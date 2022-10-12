@@ -1,3 +1,5 @@
-import { testString } from "../ex5.test"
+import { randomInt } from "crypto"
+
+const testString = "Test string " + randomInt(1000)
 
 process.stdout.write(testString)
