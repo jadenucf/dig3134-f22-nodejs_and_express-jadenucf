@@ -1,5 +1,5 @@
-import { randomInt } from "crypto"
+// import { randomInt } from "crypto"
+import { arr } from "../ex5.test.js"
 
-const testString = "Test string " + randomInt(1000)
-
-process.stdout.write(testString)
+console.log(arr)
+process.stdout.write(arr[0])
