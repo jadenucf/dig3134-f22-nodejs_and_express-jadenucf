@@ -10,7 +10,7 @@ import { fileURLToPath } from "url"
 import { spawn, spawnSync } from "child_process"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-export const testString = "Test string " + randomInt(1000)
+
 function cleanTestDir () {
   const files = fs.readdirSync(path.resolve("testDir"))
   for (const file of files) {
@@ -105,6 +105,7 @@ describe("5-2", () => {
   })
   // Call ex5/echo.js with a string argument and test if as expected.
   test("3. echo", async () => {
+    const testString = "Test string " + randomInt(1000)
     execNodeProgram("echo.js", [testString], out => {
       expect(out).toMatch(`${testString}`)
     })
