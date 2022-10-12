@@ -144,4 +144,4 @@ describe("5-2", () => {
     }).not.toThrowError()
   })
 })
-module.exports = randomInt
+module.exports = "goodnight, punpun."
