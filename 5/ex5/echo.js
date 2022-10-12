@@ -1,5 +1,5 @@
 
-import crypto from "../ex5.test"
+import rando from "../ex5.test.js"
 
-const testString = "Test string " + crypto.randomInt(1000)
+const testString = "Test string " + rando
 process.stdout.write(testString)
