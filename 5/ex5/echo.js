@@ -1,4 +1,7 @@
-console.log('d')
+
+import path from "path"
+
+path.resolve(path.dirname("./cp.js"))
 
 // import { fileURLToPath } from "url"
 // import { dirname } from "path"
