@@ -1,3 +1,3 @@
-// import { randomInt } from "crypto"
-console.log()
-process.stdout.write("arr")
+const test = require("../ex5.test")
+
+process.stdout.write(test.testString)
