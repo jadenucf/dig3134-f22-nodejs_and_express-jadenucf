@@ -105,7 +105,7 @@ describe("5-2", () => {
   })
   // Call ex5/echo.js with a string argument and test if as expected.
   test("3. echo", async () => {
-    let testString = "Test string " + randomInt(1000)
+    const testString = "Test string " + randomInt(1000)
     execNodeProgram("echo.js", [testString], out => {
       expect(out).toMatch(`${testString}`)
     })
