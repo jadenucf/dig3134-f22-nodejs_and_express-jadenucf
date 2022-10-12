@@ -1,6 +1,6 @@
 {
     "name": "dig3134-html_and_javascript",
-    "type": "module",
+    "type": "commonjs",
     "jest": {
         "testEnvironment": "jsdom",
         "setupFiles": [
