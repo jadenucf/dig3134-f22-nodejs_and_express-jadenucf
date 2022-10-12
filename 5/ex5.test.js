@@ -144,3 +144,4 @@ describe("5-2", () => {
   })
 })
 
+export const hi = "hi"
