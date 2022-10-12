@@ -10,7 +10,7 @@ import { fileURLToPath } from "url"
 import { spawn, spawnSync } from "child_process"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-export const testString = "f"
+export const testString = "1"
 function cleanTestDir () {
   const files = fs.readdirSync(path.resolve("testDir"))
   for (const file of files) {
