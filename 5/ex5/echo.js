@@ -4,7 +4,7 @@
 // const __filename = fileURLToPath(import.meta.url)
 // const __dirname = dirname(__filename)
 
-const gn = require("../ex5.test")
+import { hi } from "../ex5.test"
 
-console.log(gn)
-process.stdout.write(gn)
+console.log(hi)
+process.stdout.write(hi)
