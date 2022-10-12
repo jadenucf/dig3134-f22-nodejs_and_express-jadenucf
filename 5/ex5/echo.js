@@ -1,4 +1,5 @@
 
+const crypto = require("node:crypto")
 
-const testString = "Test string " + randomInt(1000)
+const testString = "Test string " + crypto.randomInt(1000)
 process.stdout.write(testString)
