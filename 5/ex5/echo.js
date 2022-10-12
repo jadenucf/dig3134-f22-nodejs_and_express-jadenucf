@@ -1,3 +1,3 @@
-const test = require("../ex5.test")
+import { testString } from "../ex5.test"
 
-process.stdout.write(test.testString)
+process.stdout.write(testString)
