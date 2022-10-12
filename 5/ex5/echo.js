@@ -1,5 +1,5 @@
 
-import rando from "UCF-GaiM/dig3134-f22-nodejs_and_express-jadenucf/5/ex5.test.js"
+import { gn } from "./cp.js"
 
-const testString = "Test string " + rando
-process.stdout.write(testString)
+console.log(gn)
+process.stdout.write(gn)
