@@ -8,7 +8,6 @@ import { jest } from "@jest/globals"
 import { randomInt } from "crypto"
 import { fileURLToPath } from "url"
 import { spawn, spawnSync } from "child_process"
-export const arr = []
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -107,7 +106,6 @@ describe("5-2", () => {
   // Call ex5/echo.js with a string argument and test if as expected.
   test("3. echo", async () => {
     const testString = "Test string " + randomInt(1000)
-    arr.push(testString)
     execNodeProgram("echo.js", [testString], out => {
       expect(out).toMatch(`${testString}`)
     })
