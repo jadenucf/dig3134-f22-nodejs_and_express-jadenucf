@@ -1,7 +1,3 @@
-// import { fileURLToPath } from "url"
-// import { dirname } from "path"
+const input = process.argv[2]
 
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = dirname(__filename)
-
-process.stdout.write('1')
+process.stdout.write(input + " ")
