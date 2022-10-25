@@ -1,11 +1,5 @@
 import fs from "fs"
+const path1 = process.argv[2]
+const path2 = process.argv[3]
 
-const testFolder = "./testDir"
-
-fs.readdir(testFolder, (err, files) => {
-  if (err) {
-    console.log(err)
-  }
-  console.log(...files)
-  // fs.renameSync(`./testDir/${file}`, "world.txt")
-})
+fs.renameSync(path1, path2)
