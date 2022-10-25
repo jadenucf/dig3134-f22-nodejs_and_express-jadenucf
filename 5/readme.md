@@ -473,12 +473,12 @@ Correct
 
 Score: 1/2
 
-Study App
-
-Modes:
-1. Multiple Choice
-2. Vocabulary Drill
-3. Exit
-
+Study App 
+ 
+Modes: 
+1. Multiple Choice 
+2. Vocabulary Drill 
+3. Exit 
+ 
  > 
 ```

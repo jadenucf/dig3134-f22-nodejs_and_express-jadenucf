@@ -11,6 +11,10 @@ import { spawn, spawnSync } from "child_process"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+<<<<<<< HEAD
+=======
+export const rando = randomInt
+>>>>>>> 7863984e5889e3ba694f554e945fa4a83754b255
 function cleanTestDir () {
   const files = fs.readdirSync(path.resolve("testDir"))
   for (const file of files) {
@@ -142,3 +146,5 @@ describe("5-2", () => {
     }).not.toThrowError()
   })
 })
+
+export const hi = "hi"
