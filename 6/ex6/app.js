@@ -3,6 +3,7 @@ const fs = require("fs")
 const app = express()
 const path = require("path")
 const data = require("./mockData.json")
+
 // console.log(data)
 
 app.use(express.json())
