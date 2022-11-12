@@ -9,7 +9,7 @@
         "comments": [
             {
                 "date": "DateTime",
-                "commentId": "cid11",
+                "commentId": "cid11a",
                 "content": "string"
             }
         ],
@@ -23,7 +23,12 @@
         "comments": [
             {
                 "date": "DateTime",
-                "commentId": "cid12",
+                "commentId": "cid11a",
+                "content": "string"
+            },
+            {
+                "date": "DateTime",
+                "commentId": "cid11b",
                 "content": "string"
             }
         ],
@@ -36,8 +41,7 @@
         "comments": [
             {
                 "author": "jason",
-                "date": "2022-09-24T12:25:33.107Z",
-                "commentId": "cid13",
+                "commentId": "cid11a",
                 "content": "fake"
             }
         ],
