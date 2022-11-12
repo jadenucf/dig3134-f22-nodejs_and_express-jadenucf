@@ -8,5 +8,13 @@
     "gaim.vsix": "0.0.71",
     "gaim.unity": "0.0.13",
     "curBranch": "main"
+  },
+  "user": {
+    "versions": { "gaim.vsix": "0.0.73" },
+    "githubID": "jadenucf",
+    "repo": "dig3134-f22-html_and_javascript-jadenucf",
+    "secret": "0ay6wkxp6a4x49ylbti1",
+    "curBranch": "main"
   }
 }
+
