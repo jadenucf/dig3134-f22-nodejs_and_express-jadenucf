@@ -51,7 +51,6 @@ app.get("/posts", (req, res) => {
 
 app.get("/posts/:id", (req, res) => {
   // Get a single post by their ID from the database
-  // const postId = req.params._id;
   db.collection("posts")
     .find({ _id: ObjectId(req.params.id) })
     .toArray((err, posts) => {
@@ -77,20 +76,18 @@ app.post("/posts", (req, res) => {
 
 app.put("/posts/:id", (req, res) => {
   // Get a reference to the posts collection
-  const posts = db.collection("posts")
-
-  // Find the post with the specified ID and update its data
-  posts.findOneAndUpdate(
-    { _id: ObjectId(req.params.id) },
-    { $set: req.body },
-    (err, result) => {
-      if (err) {
-        res.send(err)
-      } else {
-        res.json(result.value)
+  db.collection("posts") // Find the post with the specified ID and update its data
+    .findOneAndUpdate(
+      { _id: ObjectId(req.params.id) },
+      { $set: req.body },
+      (err, result) => {
+        if (err) {
+          res.send(err)
+        } else {
+          res.json(result.value)
+        }
       }
-    }
-  )
+    )
 })
 
 app.delete("/posts/:id", (req, res) => {
@@ -107,9 +104,9 @@ app.delete("/posts/:id", (req, res) => {
 
 app.get("/posts/:id", (req, res) => {
   // Get a single post by their ID from the database
-  const postId = req.params.postId
+
   db.collection("posts")
-    .find({ postId })
+    .find({ _id: ObjectId(req.params.id) })
     .toArray((err, posts) => {
       if (err) {
         res.status(500).send(err)
@@ -238,7 +235,7 @@ app.get("/comments", (req, res) => {
   })
 })
 
-app.get("/comments/:commentId", (req, res) => {
+app.get("/comments/:id", (req, res) => {
   // Get all comments for the specified post from the database
   db.collection("comments")
     .find({ _id: ObjectId(req.params.id) })

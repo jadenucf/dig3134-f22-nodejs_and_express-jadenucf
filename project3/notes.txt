@@ -6,10 +6,10 @@
 
 
 POST 
-"title": "I call second.",
-"body": "Its been years since the last post, wow.",
-"user": "panix64@gmail.com",
-"date": 2022-11-11 12:15:32 UTC
+"title": "I posted this from a secret location.",
+"body": "not from the app.",
+"user": "anonymous@???.com",
+"date": new Date()
 
 USER 
 "name": "nightowl11",

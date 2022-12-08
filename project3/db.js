@@ -1,10 +1,10 @@
-const { MongoClient } = require('mongodb')
+const { MongoClient } = require("mongodb")
 
 let dbConnection
 
 module.exports = {
   connectToDb: (cb) => {
-    MongoClient.connect('mongodb://localhost:27017/social_media_app')
+    MongoClient.connect("mongodb://localhost:27017/social_media_app")
       .then(client => {
         dbConnection = client.db()
         return cb()
