@@ -1,0 +1,50 @@
+
+[
+    {
+        "title": "string",
+        "date": "DateTime",
+        "postId": 1,
+        "author": "jaden",
+
+        "comments": [
+            {
+                "date": "DateTime",
+                "commentId": "cid11a",
+                "content": "string"
+            }
+        ],
+        "content": "string"
+    },
+    {
+        "title": "string",
+        "date": "DateTime",
+        "postId": 2,
+        "author": "jaden",
+        "comments": [
+            {
+                "date": "DateTime",
+                "commentId": "cid11a",
+                "content": "string"
+            },
+            {
+                "date": "DateTime",
+                "commentId": "cid11b",
+                "content": "string"
+            }
+        ],
+        "content": "string"
+    },
+    {
+        "title": "Not sure",
+        "date": "2022-09-24T12:25:33.107Z",
+        "postId": 3,
+        "comments": [
+            {
+                "author": "jason",
+                "commentId": "cid11a",
+                "content": "fake"
+            }
+        ],
+        "content": "string"
+    }
+]
